@@ -1,75 +1,65 @@
-# React + TypeScript + Vite
+# Lava Rápido Brilho Total
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de um lava-rápido de automóveis feita com **React + Vite + TypeScript + Tailwind CSS**,
+usando **react-router** para o roteamento de páginas e o hook **useContext** para compartilhar
+os agendamentos entre as páginas e o cabeçalho.
 
-Currently, two official plugins are available:
+## 👨‍💻 Autores e Créditos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Projeto desenvolvido pela turma **1-TDSPI | Paulista — FIAP**
 
-## React Compiler
+| Foto | Nome | RM | Turma | GitHub | LinkedIn |
+|---|---|---|---|---|---|
+| <img src="public/integrantes/Miguel.jpeg" width="64" height="64" style="border-radius:50%"> | Miguel Vieira Martins | 571978 | 1-TDSPI | [Miguel-V-M-dev](https://github.com/Miguel-V-M-dev) | [perfil](https://www.linkedin.com/in/miguel-vieira-martins-598964406) |
+| <img src="public/integrantes/Gustavo.jpeg" width="64" height="64" style="border-radius:50%"> | Gustavo Neri Andrade | 572722 | 1-TDSPI | [GustavoNeriAndrade](https://github.com/GustavoNeriAndrade) | [perfil](https://www.linkedin.com/in/gustavo-neri-andrade-163795337) |
+| <img src="public/integrantes/Thiago.jpeg" width="64" height="64" style="border-radius:50%"> | Thiago Vendrami Luca | 572942 | 1-TDSPI | [Thiagovluca](https://github.com/Thiagovluca) | [perfil](https://br.linkedin.com/in/thiago-vendrami-luca-4892a6409) |
+| <img src="public/integrantes/Carlos.jpeg" width="64" height="64" style="border-radius:50%"> | Carlos Americo Machado Brambilla | 571250 | 1-TDSPI | [CarlosAmericoMachado](https://github.com/CarlosAmericoMachado) | [perfil](https://www.linkedin.com/in/carlos-brambilla-b5b971407) |
+| <img src="public/integrantes/Murilo.jpeg" width="64" height="64" style="border-radius:50%"> | Murilo da Silva Lourenço | 573959 | 1-TDSPI | [murilojosh](https://github.com/murilojosh) | [perfil](https://www.linkedin.com/in/murilo-lourenço-35250b411) |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Link do projeto no GitHub
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+https://github.com/Miguel-V-M-dev/lava-rapido.git
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologias
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Tecnologia | Uso no projeto |
+| ---------- | -------------- |
+| React + Vite + TypeScript | Base da aplicação |
+| Tailwind CSS | Estilização de todas as páginas (somente Tailwind) |
+| react-router | Rotas com `createBrowserRouter`, `RouterProvider`, `Outlet` e `Link` |
+| useContext | `AgendamentoContext` compartilha os tíquetes entre as páginas e o cabeçalho |
+| react-hook-form + yup | Formulário de agendamento com validação dos campos |
+| react-icons | Ícones das páginas e dos tíquetes |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Páginas
+
+| Rota | Página | Descrição |
+| ---- | ------ | --------- |
+| `/` | Home | Apresentação do lava-rápido, serviços e depoimentos com fotos dos carros lavados |
+| `/agendamentos` | Agendamentos | Formulário (nome do cliente, modelo, placa e tipo de lavagem) que gera tíquetes, cada um com botão de exclusão |
+| `/sobre` | Sobre | Integrantes do grupo com RM e foto |
+
+O cabeçalho e o rodapé aparecem em todas as páginas. O cabeçalho mostra, via contexto, o número de
+carros aguardando lavagem.
+
+## Estrutura
 
 ```
+src/
+  components/   Cabecalho, Rodape, CardDepoimento, FormAgendamento, Tiquete, CardIntegrante
+  context/      AgendamentoContext.ts (createContext + Provider)
+  data/         depoimentos.ts, integrantes.ts
+  types.ts      Tipos TypeScript (Agendamento, Depoimento, Integrante)
+  pages/        Home, Agendamentos, Sobre
+  App.tsx       Provider + Cabecalho + Outlet + Rodape
+  main.tsx      createBrowserRouter / RouterProvider
+```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Como rodar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
