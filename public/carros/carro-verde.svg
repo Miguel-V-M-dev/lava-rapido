@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Carro limpo e brilhante">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#f0f9ff"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/></linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#sky)"/>
+  <rect y="315" width="600" height="85" fill="#cbd5e1"/>
+  <ellipse cx="300" cy="332" rx="230" ry="14" fill="#94a3b8" opacity=".45"/>
+  <path d="M165 215 L215 140 H385 L445 215 Z" fill="url(#body)"/>
+  <path d="M188 212 L226 152 H292 V212 Z" fill="#bae6fd"/>
+  <path d="M308 152 H374 L416 212 H308 Z" fill="#bae6fd"/>
+  <rect x="70" y="205" width="460" height="95" rx="34" fill="url(#body)"/>
+  <rect x="490" y="225" width="34" height="18" rx="8" fill="#fef9c3"/>
+  <rect x="76" y="225" width="26" height="18" rx="8" fill="#fecaca"/>
+  <rect x="285" y="238" width="30" height="7" rx="3.5" fill="#0f172a" opacity=".25"/>
+  <circle cx="170" cy="300" r="42" fill="#1e293b"/><circle cx="170" cy="300" r="19" fill="#cbd5e1"/>
+  <circle cx="430" cy="300" r="42" fill="#1e293b"/><circle cx="430" cy="300" r="19" fill="#cbd5e1"/>
+  <g fill="#fff" stroke="#38bdf8" stroke-width="2" opacity=".9">
+    <circle cx="90" cy="120" r="16"/><circle cx="130" cy="70" r="10"/><circle cx="520" cy="110" r="18"/><circle cx="480" cy="60" r="9"/><circle cx="555" cy="170" r="8"/>
+  </g>
+  <g fill="#fff">
+    <path d="M330 185 l6 -22 l6 22 l22 6 l-22 6 l-6 22 l-6 -22 l-22 -6 z" opacity=".95"/>
+    <path d="M420 250 l4 -13 l4 13 l13 4 l-13 4 l-4 13 l-4 -13 l-13 -4 z" opacity=".85"/>
+  </g>
+</svg>
